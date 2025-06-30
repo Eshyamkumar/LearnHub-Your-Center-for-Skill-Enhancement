@@ -1,0 +1,238 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 76px; /* Account for fixed navbar */
+}
+
+/* Page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Loading states */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.loading-spinner {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Error states */
+.error-container {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.error-container h2 {
+  color: var(--danger-color);
+  margin-bottom: 1rem;
+}
+
+.error-container p {
+  color: var(--gray-600);
+  margin-bottom: 2rem;
+}
+
+/* Success states */
+.success-container {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.success-container h2 {
+  color: var(--success-color);
+  margin-bottom: 1rem;
+}
+
+.success-container p {
+  color: var(--gray-600);
+  margin-bottom: 2rem;
+}
+
+/* Empty states */
+.empty-container {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.empty-container h3 {
+  color: var(--gray-600);
+  margin-bottom: 1rem;
+}
+
+.empty-container p {
+  color: var(--gray-500);
+  margin-bottom: 2rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 66px; /* Smaller navbar on mobile */
+  }
+}
+
+/* Custom scrollbar for the entire app */
+.App::-webkit-scrollbar {
+  width: 8px;
+}
+
+.App::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+
+.App::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: 4px;
+}
+
+.App::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-400);
+}
+
+/* Focus management */
+.App:focus {
+  outline: none;
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .footer,
+  .btn,
+  .modal {
+    display: none !important;
+  }
+  
+  .main-content {
+    padding-top: 0;
+  }
+  
+  .card {
+    box-shadow: none;
+    border: 1px solid var(--gray-300);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-color: #0000ff;
+    --secondary-color: #ff6600;
+    --success-color: #008000;
+    --danger-color: #ff0000;
+    --warning-color: #ff6600;
+    --info-color: #0066cc;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .fade-in,
+  .slide-in {
+    animation: none;
+  }
+  
+  .card:hover {
+    transform: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --light-color: #1f2937;
+    --gray-100: #374151;
+    --gray-200: #4b5563;
+    --gray-300: #6b7280;
+    --gray-400: #9ca3af;
+    --gray-500: #d1d5db;
+    --gray-600: #e5e7eb;
+    --gray-700: #f3f4f6;
+    --gray-800: #f9fafb;
+    --gray-900: #ffffff;
+    --white: #111827;
+    --black: #ffffff;
+  }
+  
+  body {
+    background-color: var(--light-color);
+    color: var(--gray-600);
+  }
+  
+  .card {
+    background-color: var(--gray-100);
+    color: var(--gray-600);
+  }
+  
+  .form-control {
+    background-color: var(--gray-100);
+    color: var(--gray-600);
+    border-color: var(--gray-300);
+  }
+  
+  .form-control:focus {
+    background-color: var(--gray-100);
+    color: var(--gray-600);
+  }
+  
+  .table {
+    background-color: var(--gray-100);
+    color: var(--gray-600);
+  }
+  
+  .table thead th {
+    background-color: var(--gray-200);
+    color: var(--gray-700);
+  }
+  
+  .modal-content {
+    background-color: var(--gray-100);
+    color: var(--gray-600);
+  }
+  
+  .navbar {
+    background-color: var(--gray-100) !important;
+  }
+  
+  .footer {
+    background-color: var(--gray-800);
+    color: var(--gray-400);
+  }
+} 
